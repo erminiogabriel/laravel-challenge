@@ -6,13 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PlaceRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,9 +15,23 @@ class PlaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'city' => 'required|string',
-            'state' => 'required|string',
+            'name' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'The name field is required.',
+            'city.required' => 'The city field is required.',
+            'state.required' => 'The state field is required.',
         ];
     }
 }

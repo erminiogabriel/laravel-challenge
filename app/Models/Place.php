@@ -13,5 +13,6 @@ class Place extends Model
         'name',
         'city',
         'state',
+        'slug',
     ];
 }
